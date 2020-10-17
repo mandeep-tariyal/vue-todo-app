@@ -3,7 +3,7 @@
     <div class="input-group mb-3">
       <input type="text" class="form-control" v-model="newItem"  placeholder="Add Todo">
       <div class="input-group-append">
-        <button  class="btn btn-outline-success" @click="add()" :disabled="newItem.length < 3">ADD</button>
+        <button  class="btn btn-outline-dark"  @click="add()" :disabled="newItem.length < 3">ADD</button>
       </div>
     </div>
     </div>

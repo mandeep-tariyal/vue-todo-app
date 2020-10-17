@@ -1,10 +1,12 @@
 <template>
-  <div class="container" id="app"   >
+  <div  id="app" class="container"   >
     
     
     <Title/>
     
     
+    <div class=" custom"> 
+
     <InputForm  
      @NewItemAdded="add($event)"
        />
@@ -13,19 +15,22 @@
     <!-- //<InputForm2 :newItem.sync="newItem2" />
     //<button @click="add">new add</button> -->
     
-    <h2 v-if="isCompleted.length>0"> Completed Tasks</h2>
-   
-    <ul class="list-group">
-      <ListItem  @handlerDel="del($event)" v-for="item in isCompleted" :item="item"  :key="item.id"  />
-      
-    </ul>
-  
     <h2 v-if="notCompleted.length>0"> incomplete tasks</h2>
      
      
       <ul class="list-group">
         <ListItem  @handlerDel="del($event)" v-for="item in notCompleted" :item="item"  :key="item.id"/>
       </ul>
+
+    <h2 v-if="isCompleted.length>0"> Completed Tasks</h2>
+   
+    <ul class="list-group">
+      <ListItem   @handlerDel="del($event)" v-for="item in isCompleted" :item="item"  :key="item.id"  />
+      
+    </ul>
+    
+   
+  </div>
   </div>
   
 </template>
@@ -50,8 +55,8 @@ export default Vue.extend({
       newItem2: "",
       newId: 2,
       todo: [
-        {id: 1, name: "buy tea", status:true},
-        {id: 2, name: "buy banana",status:true}
+        {id: 1, name: "Buy tea", status:false},
+        {id: 2, name: "Buy banana",status:false}
         ] as ITodoItem[]
     }
   },
@@ -80,6 +85,7 @@ export default Vue.extend({
       }
       
     },
+    
    
     
     // add2()
@@ -100,11 +106,10 @@ export default Vue.extend({
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}.custom{
+  background-color: rgba(115, 115, 134, 0.281);
+ 
 }
-.custom
- {
-  background: blue;
-  background-color: aqua
- }
+
 
 </style>
