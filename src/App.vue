@@ -2,7 +2,7 @@
 	<div id="app" class="container">
 
 		<Title />
-
+<ToDo />
 		<div class=" custom">
 
 			<InputForm @NewItemAdded="add($event)" />
@@ -32,15 +32,15 @@ import Vue from 'vue';
 import ListItem from './components/ListItem.vue';
 import Title from './components/Title.vue';
 import { ITodoItem } from "./interfaces/ITodoItem";
-//import InputForm2 from './components/inputForm2.vue';
+import ToDo from "./components/ToDo.vue";
 import InputForm from './components/inputForm.vue';
 export default Vue.extend({
 	name: 'App',
 	components: {
 		ListItem,
 		Title,
-		InputForm
-		//InputForm2
+		InputForm,
+		ToDo
 	},
 	data() {
 		return {
