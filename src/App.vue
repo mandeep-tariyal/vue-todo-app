@@ -2,15 +2,18 @@
 	<div id="app" class="container">
 
 		<Title />
-<ToDo />
+		<ToDo :todo="todo " />
+		<p>
+			{{ JSON.stringify(todo) }}
+		</p>
 		<div class=" custom">
 
-			<InputForm @NewItemAdded="add($event)" />
+			<!-- <InputForm @NewItemAdded="add($event)" /> -->
 
 			<!-- //<InputForm2 :newItem.sync="newItem2" />
     //<button @click="add">new add</button> -->
 
-			<h2 v-if="notCompleted.length>0"> incomplete tasks</h2>
+			<!-- <h2 v-if="notCompleted.length>0"> incomplete tasks</h2>
 
 			<ul class="list-group">
 				<ListItem @handlerDel="del($event)" v-for="item in notCompleted" :item="item" :key="item.id" />
@@ -20,7 +23,7 @@
 
 			<ul class="list-group">
 				<ListItem @handlerDel="del($event)" v-for="item in isCompleted" :item="item" :key="item.id" />
-			</ul>
+			</ul> -->
 
 		</div>
 	</div>
@@ -29,62 +32,36 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import ListItem from './components/ListItem.vue';
+
 import Title from './components/Title.vue';
 import { ITodoItem } from "./interfaces/ITodoItem";
 import ToDo from "./components/ToDo.vue";
-import InputForm from './components/inputForm.vue';
+
 export default Vue.extend({
 	name: 'App',
 	components: {
-		ListItem,
 		Title,
-		InputForm,
 		ToDo
 	},
 	data() {
 		return {
-			newItem2: "",
+
 			newId: 2,
+
 			todo: [
 				{ id: 1, name: "Buy tea", status: false },
 				{ id: 2, name: "Buy banana", status: false }
 			] as ITodoItem[]
 		}
 	},
-	computed: {
-		isCompleted(): ITodoItem[] {
-			return this.todo.filter(item => item.status === true)
-		},
-		notCompleted(): ITodoItem[] {
-			return this.todo.filter(item => item.status === false)
-		}
-	}
 
-	,
-	methods: {
-		add(newItem: string) {
-			this.newId += 1;
-			this.todo.push({ id: this.newId, name: newItem, status: false })
 
-		},
-		del(id: number) {
-			let itemFound: ITodoItem | undefined = this.todo.find(item => item.id === id)
-			if (itemFound) {
-				let itemIndex = this.todo.indexOf(itemFound)
-				this.todo.splice(itemIndex, 1)
-			}
-
-		},
+	methods: {}
 
 
 
-		// add2()
-		// {
-		//   this.newId+=1;
-		//   return this.todo.push({id:this.newId,name:this.newItem2})
-		// }
-	}
+	
+	
 });
 </script>
 
