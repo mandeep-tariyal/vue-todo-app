@@ -18,7 +18,7 @@ export default d.extend();
 		</div>
 
 		<div v-if="condition" class="input-group mb-3">
-			<input type="text" class="form-control" v-model="variable" @keyup.enter="save()">
+			<input type="text" class="form-control" v-model="variable" >
 		
     	<div class="input-group-append">
 				<button type="button" class="btn btn-outline-dark btn-sm " @click="save(variable)"> SAVE</button>
