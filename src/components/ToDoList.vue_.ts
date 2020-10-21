@@ -1,8 +1,14 @@
 import vue from 'vue';
 
 export default vue.extend({
-props:{
-    todo:Object
-},
-
-})
+    props: {
+        list: Object
+    },
+    methods: {
+        todo(id: number) {
+            this.$emit("expand", id)
+        },
+        
+    }
+}
+)

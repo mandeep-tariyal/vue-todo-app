@@ -1,3 +1,8 @@
+<script>
+import d from './InputForm.vue_';
+export default d.extend();
+</script>
+
 <template>
     <div>        
     <div class="input-group mb-3">
@@ -9,9 +14,6 @@
     </div>
 </template>
 
-<script>
-import d from './inputForm.vue_';
-export default d.extend();
-</script>
+
 
 

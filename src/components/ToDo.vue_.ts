@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import ListItem from './ListItem.vue';
 import { ITodoItem } from "../interfaces/ITodoItem";
-import InputForm from './inputForm.vue';
+import InputForm from './InputForm.vue';
 import { Prop } from 'vue/types/options';
 
 export default Vue.extend({

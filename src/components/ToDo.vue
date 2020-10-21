@@ -5,7 +5,7 @@ export default d.extend();
 
 <template>
 <div >
-    <InputForm @NewItemAdded="add($event)" />
+    <InputForm  @NewItemAdded="add($event)" />
    
    <h2 v-if="notCompleted.length>0"> incomplete tasks</h2>
 
