@@ -7,18 +7,22 @@ export default d.extend();
 
 <template>
 	<div id="app" class="container">
-
 		<Title />
-		<InputForm @NewItemAdded="addList($event)" />
-		<ul list-group>
 
-			<ToDoList
-			          v-for="item in list" :list="item" :key="item.id"
-			          @expand="displayTodo($event)"  />
-			<button class="btn btn btn-danger" @click="hideTodo()"> Collapse</button>
-		</ul>
-		<ToDo v-if="display" :todo="todo" />
+		<div class="media">
+			<div class="mr-2">
+				<InputForm @NewItemAdded="addList($event)" />
 
+				<ul list-group>
+					<ToDoList v-for="item in list" :list="item" :key="item.id"
+										@expand="displayTodo($event)" />
+					<button class="btn btn btn-danger" @click="hideTodo()"> Collapse</button>
+				</ul>
+			</div>
+			<div class="media-body">
+				<ToDo v-if="display" :todo="todo" />
+			</div>
+		</div>
 	</div>
 
 </template>

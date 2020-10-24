@@ -21,7 +21,7 @@ export default d.extend();
 			<input type="text" class="form-control" v-model="variable" >
 		
     	<div class="input-group-append">
-				<button type="button" class="btn btn-outline-dark btn-sm " @click="save(variable)"> SAVE</button>
+				<button type="button" class="btn btn-outline-dark btn-sm " @click="save(item.id,variable)"> SAVE</button>
 				<br><button class="btn btn  btn-light btn-sm" @click="cancel()"> Cancel</button>
 			</div>
 		

@@ -1,9 +1,11 @@
+import { ITodoItem } from '@/interfaces/ITodoItem';
 import Vue from 'vue';
+import { Prop } from 'vue/types/options';
 
 export default Vue.extend({
   name: 'HelloWorld',
   props: {
-    item : Object,
+    item : Object as Prop<ITodoItem>,
     color: {
       type: String,
       default: "red"
@@ -20,16 +22,14 @@ export default Vue.extend({
       this.$emit("handlerDel",id)
 
     },
-    save( variable :string){
-      this.item.name = variable
-      this.variable=""
-      this.condition= false
+    save(id:number ,variable: string  ){
+      this.$emit("save",id,variable)
 
     },
     edit()
      {
     
-      this.variable = this.item.name;
+      
        this.condition =true;
      },cancel()
      {
