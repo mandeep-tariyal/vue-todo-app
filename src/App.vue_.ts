@@ -6,9 +6,11 @@ import { ITodoItem } from "./interfaces/ITodoItem";
 import { ITodoList } from "./interfaces/ITodoList";
 import ToDo from "./components/ToDo.vue";
 import ToDoList from "./components/ToDoList.vue";
+import MainStore from "./store/index";
 
 export default Vue.extend({
 	name: 'App',
+	store: MainStore,
 	components: {
 		Title,
 		ToDo,
@@ -17,7 +19,7 @@ export default Vue.extend({
 	},
 	data() {
 		return {
-
+			state: this.$store.state,
 			newId: 2,
 			list: todoList,
 			todo: [] as ITodoItem[],
@@ -26,8 +28,7 @@ export default Vue.extend({
 
 		}
 	},
-
-
+	
 	methods: {
 		displayTodo(id: number) {
 			let filteredArray = this.list.find(item => item.id === id)

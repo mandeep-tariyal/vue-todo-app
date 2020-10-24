@@ -7,6 +7,7 @@ export default d.extend();
 
 <template>
 	<div id="app" class="container">
+		{{ state.name }}
 		<Title />
 
 		<div class="media">

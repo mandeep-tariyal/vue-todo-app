@@ -9,7 +9,7 @@ export default d.extend();
 
 		<input type="checkbox" v-model="item.status" />
 
-		{{ item.name.toUpperCase() }}
+	{{ nameState }}	{{ item.name.toUpperCase() }}
 
 		<div class="input-group-append">
 			<button class=" btn   btn-danger btn-sm" @click="del(item.id)"> Delete </button>

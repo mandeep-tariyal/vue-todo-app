@@ -12,6 +12,7 @@ export default Vue.extend({
     }
   }, data(){
     return{
+      nameState: this.$store.state.name,
       condition :false,
       variable:""
       
