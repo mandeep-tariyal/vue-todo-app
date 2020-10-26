@@ -14,13 +14,14 @@ export default d.extend();
 				<InputForm @NewItemAdded="addList($event)" />
 
 				<ul list-group>
-					<ToDoList v-for="item in list" :list="item" :key="item.id"
-										@expand="displayTodo($event)" />
-					<button class="btn btn btn-danger" @click="hideTodo()"> Collapse</button>
+					<ToDoList v-for="item in list"
+										:list="item" :key="item.id"
+										@switch-list="currentList = $event" />
+
 				</ul>
 			</div>
 			<div class="media-body">
-				<ToDo v-if="display" :todo="todo" />
+				<ToDo :todo="currentTodo" @update-name="updateTodoItemName($event)" />
 			</div>
 		</div>
 	</div>

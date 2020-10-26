@@ -20,35 +20,39 @@ export default Vue.extend({
 
 			newId: 2,
 			list: todoList,
-			todo: [] as ITodoItem[],
+			currentList: {} as ITodoList,
 			display: true
 
 
 		}
 	},
+	computed: {
+		currentTodo(): ITodoItem[] {
+			// console.log( "todo:" + JSON.stringify(this.currentList.todo));
+			return this.currentList.todo;
+		}
+	},
 
 
 	methods: {
-		displayTodo(id: number) {
-			let filteredArray = this.list.find(item => item.id === id)
-			if (filteredArray) {
-				this.todo = filteredArray.todo
-			}
-			this.display = true;
-
-		},
 		hideTodo() {
 			this.display = false
 
 		},
-		addList( newItem: string){
-			this.newId +=1;
-			this.list.push({id: this.newId, name: newItem ,todo:[] })
+		addList(newItem: string) {
+			this.newId += 1;
+			this.list.push({ id: this.newId, name: newItem, todo: [] })
+		},
+		updateTodoItemName(nameArgs: any) {
+			const foundTodoItem = this.currentList.todo.find(i => i.id === nameArgs.itemId);
+			if (foundTodoItem) {
+				foundTodoItem.name = nameArgs.itemName;
+			}
 		}
 	},
 
-	mounted() {
-		this.displayTodo(this.list[0].id);
+	beforeMount() {
+		this.currentList = this.list[0];
 	}
 
 

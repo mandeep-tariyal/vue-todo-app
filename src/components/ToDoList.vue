@@ -1,12 +1,7 @@
 <template>
-	<div>
-		<li class ="list-group-item list-group-item-primary">
-			{{list.name}}
-			<button class="btn btn btn-primary" @click="todo(list.id)">Expand</button>
-
-		</li>
-		
-	</div>
+	<li class="list-group-item list-group-item-primary">
+		<button class="btn btn-link" @click="$emit('switch-list', list)">{{list.name}}</button>
+	</li>
 </template>
 <script>
 import d from "./ToDoList.vue_"

@@ -14,7 +14,7 @@ export default d.extend();
 		<div class="input-group-append">
 			<button class=" btn   btn-danger btn-sm" @click="del(item.id)"> Delete </button>
 
-			<button class="btn  btn-warning btn-sm" @click="edit()"> Edit</button>
+			<button class="btn  btn-warning btn-sm" @click="condition = true"> Edit</button>
 		</div>
 
 		<div v-if="condition" class="input-group mb-3">

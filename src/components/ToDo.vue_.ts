@@ -42,8 +42,14 @@ export default Vue.extend({
                 let itemIndex = this.todo.indexOf(itemFound)
                 this.todo.splice(itemIndex, 1)
             }
-
-
+        },
+        emitUpdate(nameArgs: any){
+            // let tobeUpdateArray = this.todo.find(item => item.id = itemId)
+            // if(tobeUpdateArray){
+            //     this.$emit("update", tobeUpdateArray)
+            // }
         }
+       
     }
-});
+}
+);
