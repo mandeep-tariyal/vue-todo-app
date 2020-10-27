@@ -15,12 +15,13 @@ export default d.extend();
 
 				<ul list-group>
 					<ToDoList v-for="item in list"
-										:list="item" :key="item.id"
-										@switch-list="currentList = $event" />
+										:listItem="item" :key="item.id"
+										@switch-list="currentSelectedList = $event" />
 
 				</ul>
 			</div>
 			<div class="media-body">
+				{{currentSelectedList.name}}
 				<ToDo :todo="currentTodo" @update-name="updateTodoItemName($event)" />
 			</div>
 		</div>

@@ -20,7 +20,7 @@ export default Vue.extend({
 
 			newId: 2,
 			list: todoList,
-			currentList: {} as ITodoList,
+			currentSelectedList: {} as ITodoList,
 			display: true
 
 
@@ -29,7 +29,7 @@ export default Vue.extend({
 	computed: {
 		currentTodo(): ITodoItem[] {
 			// console.log( "todo:" + JSON.stringify(this.currentList.todo));
-			return this.currentList.todo;
+			return this.currentSelectedList.todo;
 		}
 	},
 
@@ -44,16 +44,28 @@ export default Vue.extend({
 			this.list.push({ id: this.newId, name: newItem, todo: [] })
 		},
 		updateTodoItemName(nameArgs: any) {
-			const foundTodoItem = this.currentList.todo.find(i => i.id === nameArgs.itemId);
+			const foundTodoItem = this.currentSelectedList.todo.find(i => i.id === nameArgs.itemId);
 			if (foundTodoItem) {
 				foundTodoItem.name = nameArgs.itemName;
 			}
 		}
 	},
 
+	beforeCreate(){
+		console.log("before created")
+	},
+	created(){
+		console.log("created" + this.newId)
+	},
+
+
 	beforeMount() {
-		this.currentList = this.list[0];
-	}
+		console.log(JSON.stringify(this.currentSelectedList))
+		this.currentSelectedList = this.list[0];
+	},
+	 mounted(){
+		 console.log( JSON.stringify( this.currentSelectedList.todo));
+	 }
 
 
 

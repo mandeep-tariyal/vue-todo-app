@@ -1,6 +1,7 @@
 <template>
 	<li class="list-group-item list-group-item-primary">
-		<button class="btn btn-link" @click="$emit('switch-list', list)">{{list.name}}</button>
+		<button class="btn btn-link" 
+		@click="$emit('switch-list', listItem)">{{listItem.name}}</button>
 	</li>
 </template>
 <script>
